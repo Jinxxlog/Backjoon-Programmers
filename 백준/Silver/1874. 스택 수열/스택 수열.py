@@ -5,19 +5,20 @@ n = int(input())
 st = list(map(int, [input() for i in range(n)]))
 ch = []
 res = []
-cnt = 0
+cnt = 1
 
 for i in st:
-    while cnt < i:
+    while cnt <= i:
+        ch.append(cnt)
         res.append('+')
         cnt += 1
 
-    if i < cnt and i+1 not in ch:
+    if ch[-1] == i:
+        res.append('-')
+        ch.pop()
+    else:
         res.append('NO')
         break
-
-    res.append('-')
-    ch.append(i)
 
 if 'NO' in res:
     print('NO')
