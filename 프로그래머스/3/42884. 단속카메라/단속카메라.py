@@ -2,12 +2,12 @@ def solution(routes):
     routes.sort()
     
     aws = 1
-    m = 30000
+    now = 30000
     
     for i, j in routes:
-        if i > m:
+        if i > now:
             aws += 1
-            m = j
-        m = min(m, j)
+            now = j
+        now = min(now, j)
     
     return aws
